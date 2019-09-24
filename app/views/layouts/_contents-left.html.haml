@@ -1,0 +1,10 @@
+.contents__left
+  .contents__left__categories
+    .contents__left__categories__list
+      %p
+        = icon("fas", "align-justify", class: "icon", class: "category-icon")
+        カテゴリ一覧
+    .contents__left__categories__menu
+      - @categories.each do |category|
+        .contents__left__categories__menu__category.btn
+          = link_to category.name, "#"
