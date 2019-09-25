@@ -1,0 +1,25 @@
+form{
+  .signup-in-formarea{
+    height: 100px;
+    width: 600px;
+    .signup-in-form{
+      width: inherit;
+      height: inherit;
+      font-size: 50px;
+    }
+  }
+  label{
+    padding-left: 100px;
+  }
+  .signup-in-submit{
+    text-align: center;
+    .btn{
+      font-size: 50px;
+      color:white;
+      width: inherit;
+      height: inherit;
+      border: 2px solid #999;
+      background-color: red;
+    }
+  }
+}
