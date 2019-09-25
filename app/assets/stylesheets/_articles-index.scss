@@ -72,6 +72,8 @@ body{
   &__left{
     float: left;
     width: 20%;
+    height: 100%;
+    position: -webkit-sticky;
     position: sticky;
     &__categories{
       border: 2px solid #999;
@@ -154,6 +156,7 @@ body{
   &__right{
     float: left;
     width: 20%;
+    position: -webkit-sticky;
     position: sticky;
     &__user{
       width: 90%;
