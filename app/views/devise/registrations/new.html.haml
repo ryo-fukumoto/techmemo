@@ -1,0 +1,28 @@
+= render "layouts/theme"
+.contents
+  = render "layouts/contents-left"
+  .contents__center
+    .contents__center__main
+      .contents__center__main__subject
+        %p
+          = icon("far", "newspaper", class: "icon", class: "article-icon")
+          新規登録
+      .contents__center__main__articles
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = render "devise/shared/error_messages", resource: resource
+          %label ニックネーム
+          .contents__center__main__articles__article.signup-in-formarea
+            = f.text_field :nickname, placeholder: "例）ニック", class: "signup-in-form"
+          %label Eメールアドレス
+          .contents__center__main__articles__article.signup-in-formarea
+            = f.email_field :email, autocomplete: "email", placeholder: "例）nick@gamil.com", class: "signup-in-form"
+          %label パスワード
+          .contents__center__main__articles__article.signup-in-formarea
+            = f.password_field :password, autocomplete: "new-password", placeholder: "6文字以上", class: "signup-in-form"
+          %label パスワード(確認)
+          .contents__center__main__articles__article.signup-in-formarea
+            = f.password_field :password_confirmation, autocomplete: "new-password",placeholder: "パスワード再入力", class: "signup-in-form"
+            
+          .signup-in-submit
+            = f.submit "新規登録", class:"btn"
+  = render "layouts/contents-right"
