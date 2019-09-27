@@ -1,0 +1,30 @@
+= render "layouts/theme"
+.contents
+  = render "layouts/contents-left"
+  .contents__center
+    .contents__center__main
+      .contents__center__main__subject
+        %p
+          = icon("fas", "pencil-alt", class: "icon", class: "new-write-icon")
+          記事を書く
+      .contents__center__main__articles
+        = form_for @article do |f|
+          %label タイトル
+          .contents__center__main__articles__article.article-new-formarea-title
+            = f.text_area :title, placeholder: "タイトル",class: "article-new-form-title"
+
+          %label カテゴリー
+          .contents__center__main__articles__article.article-new-formarea-category
+            = f.select :category_id, Category.all.map{|category| [category.name,category.id]}, prompt: "---"
+
+          %label 内容
+          .contents__center__main__articles__article.article-new-formarea-body
+            %pre
+              %code
+                = f.text_area :body, placeholder: "内容",value: "asdf", class: "article-new-form-body"
+
+          .article-submit      
+            = f.submit "投稿する", class:"btn"
+          
+
+  = render "layouts/contents-right"
