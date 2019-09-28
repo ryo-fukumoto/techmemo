@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+
   def index
     @categories = Category.all
     @articles = Article.includes(:user).page(params[:page]).per(5).order("created_at DESC")
@@ -8,4 +9,15 @@ class ArticlesController < ApplicationController
     @categories = Category.all
     @article = Article.new
   end
+
+  def create
+     Article.create(article_params)
+      redirect_to "/articles"
+    
+  end
+
+  private
+    params.require(:article).permit(:title, :body, :category_id).merge(user_id: current_user.id)
+  end
+
 end
