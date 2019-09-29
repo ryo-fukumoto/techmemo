@@ -5,8 +5,8 @@
         = icon("far", "newspaper", class: "icon", class: "article-icon")
         新着記事一覧
     .contents__center__main__articles
-      .contents__center__main__articles__article
-        - @articles.each do |article|
+      - @articles.each do |article|
+        .contents__center__main__articles__article
           .contents__center__main__articles__article__title
             = article.title
           .contents__center__main__articles__article__info
