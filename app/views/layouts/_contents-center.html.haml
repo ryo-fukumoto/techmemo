@@ -12,7 +12,7 @@
           .contents__center__main__articles__article__info
             .contents__center__main__articles__article__info__time
               = icon("far", "clock", class: "icon", class: "clock-icon")
-              = article.created_at
+              = simple_time(article.created_at)
             .contents__center__main__articles__article__info__user-name
               = icon("fas", "user", class: "icon", class: "user-icon")
               = article.user.nickname
