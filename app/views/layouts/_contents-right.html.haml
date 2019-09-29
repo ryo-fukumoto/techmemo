@@ -1,14 +1,23 @@
 .contents__right
   .contents__right__user
-    .contents__right__user__name
-      = icon("fas", "user", class: "icon", class: "user-icon")
-      名前あいうえお
-    .contents__right__user__info
-      なにかユーザー情報かきくけこ
-    .contents__right__user__sign-in.btn
-      = link_to "ログイン", new_user_session_path
-    .contents__right__user__sign-up.btn
-      = link_to "新規登録", new_user_registration_path
-    .contents__right__user__sign-up.btn
-      = link_to "ログアウト", destroy_user_session_path, method: :delete
+    - if user_signed_in?
+      .contents__right__user__name
+        = icon("fas", "user", class: "icon", class: "user-icon")
+        = current_user.nickname
+      .contents__right__user__info
+        = "投稿数 : #{current_user.articles.count}"
+    -else
+      .contents__right__user__name
+        未登録
+      
+    - if user_signed_in?
+      .contents__right__user__sign-in.btn
+        = link_to "記事を書く", new_article_path
+      .contents__right__user__sign-up.btn
+        = link_to "ログアウト", destroy_user_session_path, method: :delete
+    - else
+      .contents__right__user__sign-up.btn
+        = link_to "ログイン", new_user_session_path
+      .contents__right__user__sign-up.btn
+        = link_to "新規登録", new_user_registration_path
       

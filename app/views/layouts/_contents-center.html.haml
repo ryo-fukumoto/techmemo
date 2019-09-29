@@ -5,16 +5,17 @@
         = icon("far", "newspaper", class: "icon", class: "article-icon")
         新着記事一覧
     .contents__center__main__articles
-      .contents__center__main__articles__article
-        .contents__center__main__articles__article__title
-          記事タイトあああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
-        .contents__center__main__articles__article__info
-          .contents__center__main__articles__article__info__time
-            = icon("far", "clock", class: "icon", class: "clock-icon")
-            記事作成時間
-          .contents__center__main__articles__article__info__user-name
-            = icon("fas", "user", class: "icon", class: "user-icon")
-            記事作成者
-          .contents__center__main__articles__article__info__category
-            = icon("fas", "tag", class: "icon", class: "tag-icon")
-            記事カテゴリ
+      - @articles.each do |article|
+        .contents__center__main__articles__article
+          .contents__center__main__articles__article__title
+            = article.title
+          .contents__center__main__articles__article__info
+            .contents__center__main__articles__article__info__time
+              = icon("far", "clock", class: "icon", class: "clock-icon")
+              = simple_time(article.created_at)
+            .contents__center__main__articles__article__info__user-name
+              = icon("fas", "user", class: "icon", class: "user-icon")
+              = article.user.nickname
+            .contents__center__main__articles__article__info__category
+              = icon("fas", "tag", class: "icon", class: "tag-icon")
+              = article.category.name
