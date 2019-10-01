@@ -13,7 +13,14 @@ class ArticlesController < ApplicationController
   def create
      Article.create(article_params)
       redirect_to "/articles"
-    
+  end
+
+  def show
+    @article = Article.find(params[:id])
+    @user = @article.user
+    @comments = @article.comments.includes(:user)
+    @categories = Category.all
+    @category = @article.category
   end
 
   private
