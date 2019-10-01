@@ -24,6 +24,20 @@
           .contents__center__main__articles__article__title.article-body
             = @article.body
           
-          .contents__center__main__articles__article__commnets
+        .contents__center__main__articles__article__commnets
+          - if current_user
+            コメントを書く
+            = form_for [@article, @comment] do |f|
+              = f.text_area :body, placeholder: "ここに記述", class: "comment-form"
+              = f.submit "コメントをする", class: "btn"
+              %h4 ＜コメント一覧＞
+              - if @comments
+                - @comments.each do |comment|
+                  %p
+                    %strong
+                      = link_to comment.user.nickname, "/users/#{comment.user_id}"
+                    = comment.body
+
+
 
   = render "./layouts/contents-right"
