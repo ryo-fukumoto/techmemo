@@ -18,6 +18,7 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @user = @article.user
+    @comment = Comment.new
     @comments = @article.comments.includes(:user)
     @categories = Category.all
     @category = @article.category
