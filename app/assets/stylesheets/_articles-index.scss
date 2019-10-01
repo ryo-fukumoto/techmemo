@@ -116,11 +116,9 @@ body{
       }
       &__articles{
         width: 100%;
-        height: 100%;
         &__article{
           margin: 30px auto;
           width: 90%;
-          height: 120px;
           border: 1px solid #999;
           box-shadow: 4px 4px 4px grey;
           &__title{
@@ -129,6 +127,10 @@ body{
             padding: 10px;
             border: 1px solid #999;
             font-size: 23px;
+            text-align:center;
+          }
+          .article-body{
+            text-align: left;
           }
           &__info{
             height: 30%;
