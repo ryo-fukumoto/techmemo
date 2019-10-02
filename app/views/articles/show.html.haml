@@ -28,14 +28,13 @@
           - if current_user
             コメントを書く
             = form_for [@article, @comment] do |f|
-              = f.text_area :body, placeholder: "ここに記述", class: "comment-form"
+              = f.text_field :body, placeholder: "ここに記述", class: "comment-form"
               = f.submit "コメントをする", class: "btn"
               %h4 ＜コメント一覧＞
               - if @comments
                 - @comments.each do |comment|
                   %p
-                    %strong
-                      = link_to comment.user.nickname, "/users/#{comment.user_id}"
+                    = comment.user.nickname
                     = comment.body
 
 
