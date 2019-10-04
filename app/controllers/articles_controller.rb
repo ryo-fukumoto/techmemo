@@ -1,8 +1,14 @@
 class ArticlesController < ApplicationController
 
   def index
-    @categories = Category.all
-    @articles = Article.includes(:user).page(params[:page]).per(5).order("created_at DESC")
+    if params[:category_id]
+      @categories = Category.all
+      @category = Category.find(params[:category_id])
+      @articles = @category.articles.order(created_at: :desc).all
+    else
+      @categories = Category.all
+      @articles = Article.includes(:user).page(params[:page]).per(5).order("created_at DESC")
+    end
   end
 
   def new

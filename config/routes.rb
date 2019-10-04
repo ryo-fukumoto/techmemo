@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   
   resources :users
 
-  resources :articles do
+  resources :articles , param: :id do
     resources :comments
   end
   resources :likes
