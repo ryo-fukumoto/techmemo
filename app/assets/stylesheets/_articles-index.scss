@@ -93,6 +93,9 @@ body{
     float: left;
     width: 60%;
     margin: 10px auto;
+    a{
+      text-decoration: none;
+    }
     &__main{
       border: 1px solid #999;
       box-shadow: 4px 4px 4px grey;
