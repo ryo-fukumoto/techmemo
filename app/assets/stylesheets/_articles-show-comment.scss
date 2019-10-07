@@ -1,5 +1,19 @@
-.comment-form{
+.comment-label{
+  margin: 10px;
+}.comment-form{
   width: 90%;
   height: 50px;
   font-size: 20px;
+  input{
+    margin-left: 80px;
+  }
+}
+.comment-submit{
+  text-align: center;
+}
+.comment-list{
+  margin: 10px;
+}
+.comment-user-info{
+  margin: 10px;
 }
