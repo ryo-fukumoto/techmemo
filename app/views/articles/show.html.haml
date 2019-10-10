@@ -19,6 +19,11 @@
             .contents__center__main__articles__article__info__category
               = icon("fas", "tag", class: "icon", class: "tag-icon")
               = @article.category.name
+            - if @article.user_id == current_user.id
+              .contents__center__main__articles__article__info__edit
+                = link_to "編集"
+              .contents__center__main__articles__article__info__destroy
+                = link_to "削除"
           .contents__center__main__articles__article__title
             = @article.title
           .contents__center__main__articles__article__title.article-body
