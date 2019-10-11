@@ -21,7 +21,7 @@
               = @article.category.name
             - if @article.user_id == current_user.id
               .contents__center__main__articles__article__info__edit
-                = link_to "編集"
+                = link_to "編集", "/articles/#{@article.id}/edit"
               .contents__center__main__articles__article__info__destroy
                 = link_to "削除" ,"/articles/#{@article.id}", method: :delete
           .contents__center__main__articles__article__title

@@ -31,14 +31,15 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    @categories = Category.all
     @article = Article.find(params[:id])
   end
 
   def update
     article = Article.find(params[:id])
-    if article.id == current_user.id
+    if article.user_id == current_user.id
       article.update(article_params)
-      redirect_to "/articles/#{article.id}"
+      redirect_to root_path
     end
   end
 
