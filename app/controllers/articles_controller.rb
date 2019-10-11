@@ -30,6 +30,27 @@ class ArticlesController < ApplicationController
     @category = @article.category
   end
 
+  def edit
+    @categories = Category.all
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    article = Article.find(params[:id])
+    if article.user_id == current_user.id
+      article.update(article_params)
+      redirect_to root_path
+    end
+  end
+
+  def destroy
+    article = Article.find(params[:id])
+    if article.user_id == current_user.id
+      article.destroy
+      redirect_to root_path
+    end
+  end
+
   private
   def article_params
     params.require(:article).permit(:title, :body, :category_id).merge(user_id: current_user.id)
