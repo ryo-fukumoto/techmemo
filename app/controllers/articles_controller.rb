@@ -38,12 +38,16 @@ class ArticlesController < ApplicationController
     article = Article.find(params[:id])
     if article.id == current_user.id
       article.update(article_params)
+      redirect_to "/articles/#{article.id}"
     end
   end
 
   def destroy
     article = Article.find(params[:id])
-    article.destroy if article.user_id == current_user.id
+    if article.user_id == current_user.id
+      article.destroy
+      redirect_to root_path
+    end
   end
 
   private
