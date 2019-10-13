@@ -7,4 +7,8 @@ class User < ApplicationRecord
   has_many :articles
   has_many :comments
   has_many :likes, dependent: :destroy
+
+  validates :nickname, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true
 end
+
