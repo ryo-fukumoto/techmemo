@@ -11,6 +11,6 @@ Rails.application.routes.draw do
 
   resources :articles , param: :id do
     resources :comments
+    resources :likes, only: [:create, :destroy]
   end
-  resources :likes
 end

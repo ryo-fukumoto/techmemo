@@ -28,6 +28,7 @@ class ArticlesController < ApplicationController
     @comments = @article.comments.includes(:user)
     @categories = Category.all
     @category = @article.category
+    @like = Like.new
   end
 
   def edit

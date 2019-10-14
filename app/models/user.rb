@@ -10,5 +10,9 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
+
+  def already_liked?(article)
+    self.likes.exists?(article_id: article.id)
+  end
 end
 

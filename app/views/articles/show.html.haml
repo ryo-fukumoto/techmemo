@@ -24,6 +24,16 @@
                 = link_to "編集", "/articles/#{@article.id}/edit"
               .contents__center__main__articles__article__info__destroy
                 = link_to "削除" ,"/articles/#{@article.id}", method: :delete
+            - if current_user.already_liked?(@article)
+              .contents__center__main__articles__article__info__edit
+                = link_to "いいね#{@article.likes.count}", article_like_path(@article), method: :delete
+            -else
+              .contents__center__main__articles__article__info__destroy
+                = icon("fas", "thumbs-up", class: "icon", class: "iine-icon")
+                = link_to "いいね#{@article.likes.count}", article_likes_path(@article), method: :post
+                
+                
+
           .contents__center__main__articles__article__title
             = @article.title
           .contents__center__main__articles__article__title.article-body
