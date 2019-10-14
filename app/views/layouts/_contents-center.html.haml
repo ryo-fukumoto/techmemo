@@ -20,3 +20,6 @@
               .contents__center__main__articles__article__info__category
                 = icon("fas", "tag", class: "icon", class: "tag-icon")
                 = article.category.name
+              .contents__center__main__articles__article__info__likes
+                = icon("fas", "thumbs-up", class: "icon", class: "iine-icon")
+                = article.likes.count
