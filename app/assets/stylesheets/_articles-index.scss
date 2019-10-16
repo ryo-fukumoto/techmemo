@@ -177,6 +177,10 @@ body{
       &__name{
         padding: 10px;
         font-size: 20px;
+        a{
+          text-decoration: none;
+          color: white;
+        }
       }
       &__info{
         padding: 10px;
