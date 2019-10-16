@@ -6,7 +6,7 @@
         新着記事一覧
     .contents__center__main__articles
       - @articles.each do |article|
-        = link_to("articles/#{article.id}") do
+        = link_to("/articles/#{article.id}") do
           .contents__center__main__articles__article
             .contents__center__main__articles__article__title
               = article.title
