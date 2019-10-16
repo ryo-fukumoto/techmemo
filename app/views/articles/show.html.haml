@@ -15,7 +15,7 @@
               = simple_time(@article.created_at)
             .contents__center__main__articles__article__info__user-name
               = icon("fas", "user", class: "icon", class: "user-icon")
-              = @article.user.nickname
+              = link_to @article.user.nickname, "/users/#{@user.id}"
             .contents__center__main__articles__article__info__category
               = icon("fas", "tag", class: "icon", class: "tag-icon")
               = @article.category.name

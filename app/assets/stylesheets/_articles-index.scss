@@ -145,6 +145,9 @@ body{
             }
             &__user-name{
               padding-right: 20px;
+              a{
+                text-decoration: none;
+              }
             }
             &__category{
               padding-right: 20px;
