@@ -1,0 +1,29 @@
+= render "./layouts/theme"
+.contents.clearfix
+  = render "./layouts/contents-left"
+  .contents__center
+    .contents__center__main
+      .contents__center__main__subject
+        %p
+          = icon("far", "newspaper", class: "icon", class: "article-icon")
+          = "#{@user.nickname}さんの投稿一覧"
+      .contents__center__main__articles
+        - @articles.each do |article|
+          = link_to("/articles/#{article.id}") do
+            .contents__center__main__articles__article
+              .contents__center__main__articles__article__title
+                = article.title
+              .contents__center__main__articles__article__info
+                .contents__center__main__articles__article__info__time
+                  = icon("far", "clock", class: "icon", class: "clock-icon")
+                  = simple_time(article.created_at)
+                .contents__center__main__articles__article__info__user-name
+                  = icon("fas", "user", class: "icon", class: "user-icon")
+                  = article.user.nickname
+                .contents__center__main__articles__article__info__category
+                  = icon("fas", "tag", class: "icon", class: "tag-icon")
+                  = article.category.name
+                .contents__center__main__articles__article__info__likes
+                  = icon("fas", "thumbs-up", class: "icon", class: "iine-icon")
+                  = article.likes.count
+  = render "./layouts/contents-right"
