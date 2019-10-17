@@ -3,7 +3,7 @@
     - if user_signed_in?
       .contents__right__user__name
         = icon("fas", "user", class: "icon", class: "user-icon")
-        = link_to current_user.nickname, "/users/#{@user.id}"
+        = link_to current_user.nickname, "/users/#{current_user.id}"
       .contents__right__user__info
         = "投稿数 : #{current_user.articles.count}"
     -else
