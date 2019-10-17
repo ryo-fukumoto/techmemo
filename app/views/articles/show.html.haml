@@ -26,7 +26,7 @@
                 = link_to "削除" ,"/articles/#{@article.id}", method: :delete
             - if current_user.already_liked?(@article)
               .contents__center__main__articles__article__info__edit
-                = link_to "いいね#{@article.likes.count}", article_like_path(@article), method: :delete
+                = link_to "いいね(済)#{@article.likes.count}", article_like_path(@article), method: :delete
             -else
               .contents__center__main__articles__article__info__destroy
                 = icon("fas", "thumbs-up", class: "icon", class: "iine-icon")
