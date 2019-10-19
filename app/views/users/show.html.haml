@@ -26,4 +26,6 @@
                 .contents__center__main__articles__article__info__likes
                   = icon("fas", "thumbs-up", class: "icon", class: "iine-icon")
                   = article.likes.count
+        .paginate
+          = paginate @articles
   = render "./layouts/contents-right"
