@@ -5,7 +5,6 @@ class ArticlesController < ApplicationController
       @category = Category.find(params[:category_id])
       @articles = @category.articles.includes(:user).page(params[:page]).per(5).order(created_at: :desc).all
     else
-      @categories = Category.all
       @articles = Article.includes(:user).page(params[:page]).per(5).order("created_at DESC")
     end
   end
