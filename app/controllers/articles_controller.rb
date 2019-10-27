@@ -2,7 +2,6 @@ class ArticlesController < ApplicationController
 
   def index
     if params[:category_id]
-      @categories = Category.all
       @category = Category.find(params[:category_id])
       @articles = @category.articles.includes(:user).page(params[:page]).per(5).order(created_at: :desc).all
     else
@@ -12,7 +11,6 @@ class ArticlesController < ApplicationController
   end
 
   def new
-    @categories = Category.all
     @article = Article.new
   end
 
@@ -26,13 +24,11 @@ class ArticlesController < ApplicationController
     @user = @article.user
     @comment = Comment.new
     @comments = @article.comments.includes(:user)
-    @categories = Category.all
     @category = @article.category
     @like = Like.new
   end
 
   def edit
-    @categories = Category.all
     @article = Article.find(params[:id])
   end
 
